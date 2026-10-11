@@ -60,7 +60,7 @@ export function Preloader() {
   }, []);
 
   // Target timestamp where the glass launch card settles and the launch slot appears
-  const LAUNCH_READY_TIMESTAMP = 10.58;
+  const LAUNCH_READY_TIMESTAMP = 12.50;
 
   // Handle launch video time update & end
   const handleLaunchTimeUpdate = () => {
@@ -179,15 +179,15 @@ export function Preloader() {
           <div
             className="relative flex items-center justify-center shrink-0"
             style={{
-              width: "max(100vw, calc(100vh * (848 / 478)))",
-              height: "max(100vh, calc(100vw * (478 / 848)))",
-              aspectRatio: "848 / 478",
+              width: "max(100vw, calc(100vh * (16 / 9)))",
+              height: "max(100vh, calc(100vw * (9 / 16)))",
+              aspectRatio: "16 / 9",
             }}
           >
             {/* Launch Video (First stage) */}
             <video
               ref={launchVideoRef}
-              src="/launch.mp4"
+              src="/launch2.mp4"
               autoPlay
               playsInline
               muted={isMuted}
@@ -202,7 +202,7 @@ export function Preloader() {
             {/* Post Launch Video (Second stage, preloaded) */}
             <video
               ref={postLaunchVideoRef}
-              src="/post-launch.mp4"
+              src="/post-launch2.mp4"
               preload="auto"
               playsInline
               muted={isMuted}
@@ -225,10 +225,10 @@ export function Preloader() {
                   transition={{ type: "spring", stiffness: 280, damping: 24 }}
                   style={{
                     position: "absolute",
-                    top: "58.5%",
-                    left: "30%",
-                    width: "40%",
-                    height: "19%",
+                    top: "59%",
+                    left: "31%",
+                    width: "38%",
+                    height: "17%",
                   }}
                   className="z-30 flex items-center justify-center pointer-events-auto"
                 >
@@ -325,9 +325,9 @@ export function Preloader() {
             <div
               style={{
                 position: "absolute",
-                left: "83%",
-                top: "73%",
-                width: "11.5%",
+                left: "86%",
+                top: "75%",
+                width: "10%",
                 height: "15%",
                 background: "linear-gradient(135deg, #0b0318 0%, #05010c 100%)",
                 border: "1px solid rgba(168, 85, 247, 0.4)",
