@@ -59,6 +59,13 @@ export function Preloader() {
     return () => window.removeEventListener("open-intro-video", handleReplay);
   }, []);
 
+  // Ensure video starts playing immediately when preloader appears
+  useEffect(() => {
+    if (isLoading && phase === "launching" && launchVideoRef.current) {
+      launchVideoRef.current.play().catch(() => {});
+    }
+  }, [isLoading, phase]);
+
   // Target timestamp where the glass launch card settles and the launch slot appears
   const LAUNCH_READY_TIMESTAMP = 12.50;
 
@@ -190,7 +197,13 @@ export function Preloader() {
               src="/launch2.mp4"
               autoPlay
               playsInline
+              preload="auto"
               muted={isMuted}
+              onCanPlay={(e) => {
+                if (phase === "launching" && e.currentTarget.paused) {
+                  e.currentTarget.play().catch(() => {});
+                }
+              }}
               onTimeUpdate={handleLaunchTimeUpdate}
               onEnded={handleLaunchVideoEnded}
               style={{ imageRendering: "auto" }}
