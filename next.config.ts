@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  allowedDevOrigins: ['192.168.81.111', '*.lhr.life', '*.loca.lt', 'localhost:3000'],
   reactCompiler: true,
   serverExternalPackages: ['firebase-admin', 'jwks-rsa', 'jose'],
   images: {
